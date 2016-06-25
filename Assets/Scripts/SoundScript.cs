@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class SoundScript : MonoBehaviour
 {
 	public AudioClip[] m_sounds;
 
-	//[RequireComponent(AudioSource)]
 	private AudioSource m_audio;
 	private bool m_isHovered = false;
 
