@@ -17,13 +17,13 @@ public class SoundScript : MonoBehaviour
 	// \start Debug VR hitting objects
 	void OnMouseEnter()
 	{
-		Debug.Log("Start Mouseover for " + this.gameObject.name);
+		//Debug.Log("Start Mouseover for " + this.gameObject.name);
 		m_isHovered = true;
 	}
 
 	void OnMouseExit()
 	{
-		Debug.Log("End Mouseover for " + this.gameObject.name);
+		//Debug.Log("End Mouseover for " + this.gameObject.name);
 		m_isHovered = false;
 	}
 
@@ -33,7 +33,7 @@ public class SoundScript : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Mouse0))
 			{
-				Debug.Log("Mouseclick");
+				//Debug.Log("Mouseclick");
 				OnHitObject(0);
 			}
 		}
@@ -42,7 +42,18 @@ public class SoundScript : MonoBehaviour
 	// \end Debug VR hitting objects
 	void OnTriggerEnter(Collider other)
 	{
-		OnHitObject(0);
+		Rigidbody rbody = other.GetComponent<Rigidbody>();
+		if (rbody)
+		{
+			Debug.Log("velocity: " + rbody.velocity.sqrMagnitude);
+			int strength = (int) (rbody.velocity.sqrMagnitude / 100);
+			Debug.Log("strength: " + rbody.velocity.sqrMagnitude);
+			OnHitObject(strength >= m_audioClips.Length ? m_audioClips.Length-1 : strength);
+		}
+		else
+		{
+			OnHitObject(0);
+		}
 	}
 
 	void OnTriggerExit(Collider other)
@@ -57,7 +68,7 @@ public class SoundScript : MonoBehaviour
 
 	void PlaySound(int type)
 	{
-		Debug.Log("PlaySound");
+		//Debug.Log("PlaySound");
 		if (type < m_audioClips.Length)
 		{
 			m_audioSource.clip = m_audioClips[type];
