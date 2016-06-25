@@ -4,14 +4,14 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class SoundScript : MonoBehaviour
 {
-	public AudioClip[] m_sounds;
+	public AudioClip[] m_audioClips;
 
-	private AudioSource m_audio;
+	private AudioSource m_audioSource;
 	private bool m_isHovered = false;
 
 	// Use this for initialization
 	void Start () {
-		m_audio = GetComponent<AudioSource>();
+		m_audioSource = GetComponent<AudioSource>();
     }
 
 	// \start Debug VR hitting objects
@@ -40,6 +40,14 @@ public class SoundScript : MonoBehaviour
 	}
 
 	// \end Debug VR hitting objects
+	void OnTriggerEnter(Collider other)
+	{
+		OnHitObject(0);
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+	}
 
 	void OnHitObject(int strength)
 	{
@@ -50,10 +58,10 @@ public class SoundScript : MonoBehaviour
 	void PlaySound(int type)
 	{
 		Debug.Log("PlaySound");
-		if (type < m_sounds.Length)
+		if (type < m_audioClips.Length)
 		{
-			m_audio.clip = m_sounds[type];
-			m_audio.Play();
+			m_audioSource.clip = m_audioClips[type];
+			m_audioSource.PlayOneShot(m_audioClips[type]);
 		}
 	}
 }
