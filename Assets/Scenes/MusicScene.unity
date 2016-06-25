@@ -444,7 +444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 471312, guid: 6d395cced64f8ce4a94c6066c35c3a5f, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3394192, guid: 6d395cced64f8ce4a94c6066c35c3a5f, type: 2}
       propertyPath: m_Mesh
@@ -498,12 +498,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495748, guid: ba3201d497986bb4b99264db51993c67, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6485568, guid: ba3201d497986bb4b99264db51993c67, type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300000, guid: c183f88bc9f79b54c88258db8260475f, type: 3}
+    - target: {fileID: 11402372, guid: ba3201d497986bb4b99264db51993c67, type: 2}
+      propertyPath: m_audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1544429f351054041a2ee89340358968, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba3201d497986bb4b99264db51993c67, type: 2}
   m_IsPrefabParent: 0
@@ -670,7 +674,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458990, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11432822, guid: 4f35fa249b5008c44ac2998be6f82d4d, type: 2}
       propertyPath: trackingSpace
