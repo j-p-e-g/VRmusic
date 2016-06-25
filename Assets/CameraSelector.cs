@@ -10,7 +10,7 @@ public class CameraSelector : MonoBehaviour {
         GameObject[] objects = UnityEngine.VR.VRDevice.isPresent ? vrGameObjects : debugGameObjects;
         foreach(var go in objects)
         {
-            go.active = true;
+            go.SetActive(true);
         }
 	}
 	
