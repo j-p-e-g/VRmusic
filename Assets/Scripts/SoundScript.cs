@@ -8,11 +8,12 @@ public class SoundScript : MonoBehaviour
 
 	private AudioSource m_audioSource;
 	private bool m_isHovered = false;
+	private float m_velocityMultiplier = 1.2f;
 
 	// Use this for initialization
 	void Start () {
 		m_audioSource = GetComponent<AudioSource>();
-    }
+	}
 
 	// \start Debug VR hitting objects
 	void OnMouseEnter()
@@ -42,13 +43,18 @@ public class SoundScript : MonoBehaviour
 	// \end Debug VR hitting objects
 	void OnTriggerEnter(Collider other)
 	{
-		Rigidbody rbody = other.GetComponent<Rigidbody>();
-		if (rbody)
+		Transform parent = other.transform.parent;
+		if (parent)
 		{
-			Debug.Log("velocity: " + rbody.velocity.sqrMagnitude);
-			int strength = (int) (rbody.velocity.sqrMagnitude / 100);
-			Debug.Log("strength: " + rbody.velocity.sqrMagnitude);
-			OnHitObject(strength >= m_audioClips.Length ? m_audioClips.Length-1 : strength);
+			SteamVR_TrackedObject controller = parent.gameObject.GetComponent<SteamVR_TrackedObject>();
+			if( controller )
+			{
+				Vector3 velocity = SteamVR_Controller.Input( (int)controller.index ).velocity;
+				Debug.Log( "hit velocity: " + velocity.x + ", " + velocity.y + ", " + velocity.z );
+				int strength = (int)( velocity.magnitude * m_velocityMultiplier);
+				Debug.Log( "sound strength: " + strength );
+				OnHitObject( strength >= m_audioClips.Length ? m_audioClips.Length - 1 : strength );
+			}
 		}
 		else
 		{
@@ -64,15 +70,14 @@ public class SoundScript : MonoBehaviour
 	{
 		Debug.Log("OnHitObject " + this.gameObject.name);
 		PlaySound(strength);
-    }
+	}
 
 	void PlaySound(int type)
 	{
-		//Debug.Log("PlaySound");
 		if (type < m_audioClips.Length)
 		{
-			m_audioSource.clip = m_audioClips[type];
-			m_audioSource.PlayOneShot(m_audioClips[type]);
+			AudioSource.PlayClipAtPoint(m_audioClips[type], this.transform.position);
+			//m_audioSource.PlayOneShot(m_audioClips[type]);
 		}
 	}
 }
