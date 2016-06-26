@@ -1860,9 +1860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_audioClips:
-  - {fileID: 8300000, guid: 1544429f351054041a2ee89340358968, type: 3}
-  - {fileID: 8300000, guid: 6b59bb40454449240b74aa4abeea7199, type: 3}
-  - {fileID: 8300000, guid: 079aeaafa390e1648a3c26ef0b02e851, type: 3}
+  - {fileID: 8300000, guid: c54fc145a46847048813281d32c8fefe, type: 3}
+  - {fileID: 8300000, guid: ed9e588406b412a468dc20293a8c7160, type: 3}
+  - {fileID: 8300000, guid: c697a4da46ac6484c95c06cc8bcefae6, type: 3}
 --- !u!114 &11404224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_audioClips:
-  - {fileID: 8300000, guid: e141fce55985c2e489862465db3b81ed, type: 3}
+  - {fileID: 8300000, guid: 1ca606d8a4a4fe0428c8d9723e3f7590, type: 3}
   - {fileID: 8300000, guid: f7e5b0600c0d6de4e9894b6b5c387f29, type: 3}
   - {fileID: 8300000, guid: a0461ee5b38b16c4eabcab6f063a4165, type: 3}
 --- !u!114 &11446606
